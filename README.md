@@ -26,3 +26,29 @@ function whoseport() {
     [ -z "$1" ] && echo "Usage: whoseport [port]" || lsof -i ":$1" | grep LISTEN
 }
 ```
+
+# Install Docker on CentOS
+
+Download rpm from this path: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/
+3 files needed (download the latest version):
+- docker-ce
+- docker-ce-cli
+- containerd.io
+
+After downloaded:
+```sh
+sudo yum install containerd.io-xx.rpm docker-ce-cli-xx.rpm
+sudo yum install docker-ce-xx.rpm
+sudo systemctl start docker
+sudo docker run --rm hello-world
+```
+
+Docker-compose:
+```sh
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Reference:
+- https://docs.docker.com/install/linux/docker-ce/centos/
+- https://docs.docker.com/compose/install/
