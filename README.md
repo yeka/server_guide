@@ -52,3 +52,25 @@ sudo chmod +x /usr/local/bin/docker-compose
 Reference:
 - https://docs.docker.com/install/linux/docker-ce/centos/
 - https://docs.docker.com/compose/install/
+
+# LSOF
+
+Find out which process is using specific port:
+```
+lsof -i :80
+```
+
+Find a process by name:
+```
+ps aux | grep <keyword>
+```
+
+Find more information about a process:
+```
+ps u -p <process_id>
+```
+
+Find out how many file descriptor is being used by a process:
+```
+lsof -p <process_id> | wc -l
+```
